@@ -8,7 +8,7 @@
     "title": "New session - 2026-02-28T06:33:34.269Z",
     "time": {
       "created": 1772260414269,
-      "updated": 1772260434580
+      "updated": 1772260445300
     },
     "summary": {
       "additions": 0,
@@ -254,7 +254,8 @@
         "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
         "role": "assistant",
         "time": {
-          "created": 1772260434571
+          "created": 1772260434571,
+          "completed": 1772260445277
         },
         "parentID": "REDACTED",
         "modelID": "big-pickle",
@@ -267,14 +268,15 @@
         },
         "cost": 0,
         "tokens": {
-          "input": 0,
-          "output": 0,
+          "input": 96,
+          "output": 80,
           "reasoning": 0,
           "cache": {
-            "read": 0,
-            "write": 0
+            "read": 11161,
+            "write": 246
           }
-        }
+        },
+        "finish": "tool-calls"
       },
       "parts": [
         {
@@ -308,13 +310,125 @@
           "callID": "call_function_oyxay8b9rgkb_1",
           "tool": "bash",
           "state": {
-            "status": "running",
+            "status": "completed",
             "input": {
               "command": "git add .gitignore && git commit -m \"add gitignore file\"",
               "description": "Add and commit .gitignore"
             },
+            "output": "[main eb610f8] add gitignore file\n 1 file changed, 3 insertions(+)\n create mode 100644 .gitignore\n",
+            "title": "Add and commit .gitignore",
+            "metadata": {
+              "output": "[main eb610f8] add gitignore file\n 1 file changed, 3 insertions(+)\n create mode 100644 .gitignore\n",
+              "exit": 0,
+              "description": "Add and commit .gitignore",
+              "truncated": false
+            },
             "time": {
-              "start": 1772260438973
+              "start": 1772260438973,
+              "end": 1772260445223
+            }
+          }
+        },
+        {
+          "id": "prt_ca2f44c29001rGhVsAQ2t4cjz6",
+          "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+          "messageID": "msg_ca2f4228b001cwhIWQ3IZiBQiE",
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2",
+          "cost": 0,
+          "tokens": {
+            "input": 96,
+            "output": 80,
+            "reasoning": 0,
+            "cache": {
+              "read": 11161,
+              "write": 246
+            }
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "REDACTED",
+        "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+        "role": "assistant",
+        "time": {
+          "created": 1772260445285,
+          "completed": 1772260450376
+        },
+        "parentID": "REDACTED",
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "/mnt/d/Rk-Estates",
+          "root": "/mnt/d/Rk-Estates"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 118,
+          "output": 48,
+          "reasoning": 0,
+          "cache": {
+            "read": 11313,
+            "write": 197
+          }
+        },
+        "finish": "stop"
+      },
+      "parts": [
+        {
+          "id": "prt_ca2f45e8a001VmH2Cp2UuaIjzx",
+          "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+          "messageID": "REDACTED",
+          "type": "step-start",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2"
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+          "messageID": "REDACTED",
+          "type": "reasoning",
+          "text": "Done. The .gitignore has been added and committed. The user said not to push until they give permission.",
+          "metadata": {
+            "anthropic": {
+              "signature": "924b42afd0a16a5bdfef47bd2d2784bed88401c935477daaca673ee7ea5450a6"
+            }
+          },
+          "time": {
+            "start": 1772260449932,
+            "end": 1772260450296
+          }
+        },
+        {
+          "id": "prt_ca2f45ffa001N7AdYkk1P4pJh3",
+          "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+          "messageID": "REDACTED",
+          "type": "text",
+          "text": "Done. Committed as `eb610f8`. Let me know when you want me to push.",
+          "time": {
+            "start": 1772260450307,
+            "end": 1772260450307
+          }
+        },
+        {
+          "id": "prt_ca2f46005001WrC3U28L6M8pbl",
+          "sessionID": "ses_35d0c2cc2ffeqVfiDMuJP1WexV",
+          "messageID": "REDACTED",
+          "type": "step-finish",
+          "reason": "stop",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2",
+          "cost": 0,
+          "tokens": {
+            "input": 118,
+            "output": 48,
+            "reasoning": 0,
+            "cache": {
+              "read": 11313,
+              "write": 197
             }
           }
         }
