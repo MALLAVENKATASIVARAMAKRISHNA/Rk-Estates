@@ -1,0 +1,1 @@
+git add and commit .gitignore but dobt push until i give permission
