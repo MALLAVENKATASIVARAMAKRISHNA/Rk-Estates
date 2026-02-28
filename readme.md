@@ -1,390 +1,403 @@
-# 🏢 RK Estates — 3D Real Estate Platform
+# 🏗️ RK Estates — Real Estate Platform with Auto Plot Division & 3D Viewer
 
-> Browse premium plots. Visualize in 3D. Buy with confidence.
-
----
-
-## 📋 Table of Contents
-
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Pages & Sections](#pages--sections)
-- [File Structure](#file-structure)
-- [Getting Started](#getting-started)
-- [3D Viewer Guide](#3d-viewer-guide)
-- [Customization](#customization)
-- [Deployment](#deployment)
-- [Environment Variables](#environment-variables)
-- [Roadmap](#roadmap)
+> A full-stack real estate web platform where admins define land dimensions, the system automatically divides land into plots, and buyers explore each plot through an interactive 3D view.
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
-**RK Estates** is a digital-first real estate platform that allows buyers, investors, and agents to:
+**RK Estates** is a role-based real estate web application with two distinct user types — **Admin** and **Buyer**.
 
-1. Browse multiple real estate projects from a single dashboard
-2. Explore individual plots on an interactive map (with filters)
-3. Visualize any plot in a real-time interactive **3D viewer**
-4. Submit enquiries directly tied to a specific plot
-
-The MVP (`rk-estates.html`) is a fully self-contained single-page prototype with working Canvas-based 3D animations, a login/register modal, plot selection panel, and enquiry form — no build step required.
+- **Admin** creates a project by entering land dimensions and the desired number of plots. The system automatically divides the land into equal plots and generates a 3D visualization for each one.
+- **Buyers** log in, browse projects, select a plot from an interactive layout, and view a 3D model of that specific plot — no site visit needed.
 
 ---
 
-## Features
+## ✨ Features
 
-| Feature | Status | Notes |
-|---|---|---|
-| Hero section with animated 3D plot grid | ✅ Done | Canvas-based, auto-rotating |
-| Login / Register modal | ✅ Done | Tab-switch UI, form validation ready |
-| Project listing cards | ✅ Done | 4 projects with status badges |
-| Interactive 3D plot viewer | ✅ Done | Orbit animation, plot selection |
-| 2D map toggle | ✅ Done | Compass, plot labels, color coding |
-| Plot detail panel | ✅ Done | Price, area, facing, block info |
-| Mini plot grid selector | ✅ Done | Click to switch selected plot |
-| Enquiry form (main) | ✅ Done | Full form with project selector |
-| Testimonials | ✅ Done | 3 buyer testimonials |
-| Toast notifications | ✅ Done | Appears on form submit / login |
-| Scroll-reveal animations | ✅ Done | IntersectionObserver based |
-| Responsive navigation | ✅ Done | Sticky with scroll shadow |
-| Footer with links | ✅ Done | RERA registration placeholder |
-| Backend API | 🔲 Phase 2 | Node.js + PostgreSQL |
-| Real 3D models (GLTF) | 🔲 Phase 2 | Three.js / Babylon.js |
-| User auth (JWT) | 🔲 Phase 2 | — |
-| Admin panel | 🔲 Phase 2 | — |
-| CRM integration | 🔲 Phase 3 | Zoho / Salesforce webhook |
+### 👤 Buyer Features
+- 🔐 Secure login & signup with JWT authentication
+- 🏘️ Browse all available real estate projects
+- 🗺️ Click a project to see the auto-generated plot grid layout
+- 🧊 Select any plot to view its interactive 3D model
+- 📋 View plot details — dimensions, area, price, facing, status
+- 📩 Submit an enquiry directly from the plot page
+- 🔎 Filter plots by size, price, and availability
 
----
-
-## Tech Stack
-
-### Current (Prototype / MVP)
-- **HTML5** — single file, no dependencies
-- **CSS3** — custom properties, grid, flexbox, animations
-- **Vanilla JavaScript** — Canvas API for 3D rendering
-- **Google Fonts** — Playfair Display (headings) + DM Sans (body)
-
-### Planned (Full Stack)
-- **Frontend:** React 18 + TypeScript + Tailwind CSS
-- **3D Engine:** Three.js (GLTF/GLB models via Draco compression)
-- **State:** Zustand
-- **Backend:** Node.js + Express / Next.js API routes
-- **Database:** PostgreSQL + Redis (sessions)
-- **Auth:** JWT + bcrypt + OAuth2 (Google)
-- **Storage:** AWS S3 / Cloudflare R2 (3D assets, images)
-- **Hosting:** Vercel (frontend) + Railway or AWS EC2 (backend)
+### 🛠️ Admin Features
+- 🔑 Separate admin login with protected dashboard
+- ➕ Create a new project by entering:
+  - Project name, location, description
+  - Total land dimensions (length × width in feet/meters)
+  - Number of plots to divide the land into
+- ⚙️ **Auto Plot Division** — system calculates and assigns dimensions to each plot automatically
+- 🧊 **Auto 3D Generation** — a 3D model is procedurally generated for each plot using its computed dimensions
+- 📊 Manage plot status (Available / Booked / Sold)
+- 🗑️ Edit or delete projects and plots
 
 ---
 
-## Pages & Sections
+## 🔄 System Flow
 
-The current `rk-estates.html` is a single-page app with the following sections:
-
+### Admin Flow
 ```
-/ (root)
-├── <nav>           Fixed top nav with logo, links, Login CTA
-├── #hero           Two-column hero: copy + animated 3D canvas
-├── #how-it-works   4-step process with numbered steps
-├── #projects       Project cards grid (4 projects)
-├── #viewer         Interactive 3D + 2D plot viewer demo
-├── #testimonials   3 buyer testimonials
-├── #enquiry        Split enquiry section with contact + form
-└── <footer>        Links, RERA info, copyright
+Admin Login
+     ↓
+Admin Dashboard
+     ↓
+Create New Project
+  → Enter land dimensions (e.g. 200ft × 150ft)
+  → Enter number of plots (e.g. 12)
+     ↓
+System Auto-Divides Land into Plots
+  → Calculates each plot's dimensions
+  → Assigns plot number, area, facing direction
+     ↓
+System Auto-Generates 3D View per Plot
+  → Procedural 3D mesh created from plot dimensions
+  → Linked to each plot record in SQLite3 database
+     ↓
+Project Published — Visible to Buyers
 ```
 
-**Modal overlay:**
-- Login / Register tabs
-- Dismissible via overlay click or × button
+### Buyer Flow
+```
+Buyer Login / Signup
+     ↓
+Dashboard — Browse All Projects
+     ↓
+Click a Project — View Interactive Plot Grid
+     ↓
+Click a Plot — See Plot Details + 3D View
+     ↓
+Submit Enquiry / Contact Agent
+```
 
 ---
 
-## File Structure
+## 🧠 Auto Plot Division Logic
+
+When an admin creates a project, the backend runs a **plot division algorithm**:
+
+1. Takes total land `length × width` (e.g. 200ft × 150ft = 30,000 sq ft)
+2. Divides into `N` equal plots (e.g. 12 plots → ~2,500 sq ft each)
+3. Arranges plots in a grid layout (rows × columns computed automatically)
+4. Assigns each plot:
+   - Unique plot number
+   - Computed dimensions (length × width)
+   - Facing direction (East/West/North/South based on grid position)
+   - Default status: `Available`
+5. Stores all plot records in SQLite3 linked to the project
+
+---
+
+## 🧊 Auto 3D View Generation
+
+Each plot's 3D model is **procedurally generated** using Three.js based on its stored dimensions — no manual `.glb` file upload needed:
+
+- A 3D rectangular land parcel mesh is rendered from the plot's actual length & width
+- Surrounding plots are shown as faded neighboring blocks for spatial context
+- Directional compass labels (N / S / E / W) are displayed
+- Road and boundary lines drawn based on plot position in the grid
+- Orbit controls allow rotate, zoom, and pan
+- Models are generated on-the-fly in the browser from dimension data returned by the API
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| React.js / Next.js | UI framework & routing |
+| Three.js | Procedural 3D plot generation & rendering |
+| Tailwind CSS | Styling & responsive layout |
+| Framer Motion | Animations & transitions |
+
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| Python 3.11+ | Backend language |
+| FastAPI | REST API framework with automatic docs |
+| SQLite3 | Lightweight file-based relational database |
+| SQLAlchemy | ORM for database models & queries |
+| python-jose | JWT token creation & verification |
+| passlib + bcrypt | Password hashing |
+| Uvicorn | ASGI server to run FastAPI |
+
+### Dev Tools
+- Git & GitHub
+- FastAPI Swagger UI (auto-generated at `/docs`)
+- Postman (API testing)
+- Figma (UI/UX design)
+- Vercel (frontend) / Render or Railway (backend deployment)
+
+---
+
+## 🗂️ Folder Structure
 
 ```
 rk-estates/
-├── rk-estates.html        ← Complete MVP (open in browser)
-├── README.md              ← This file
+├── client/                              # Frontend (React/Next.js)
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       │   ├── Navbar.jsx
+│       │   ├── Layout.jsx
+│       │   ├── ProjectCard.jsx
+│       │   ├── PlotCard.jsx
+│       │   ├── PlotGrid.jsx             # Visual plot grid with status colours
+│       │   ├── PlotInfoPanel.jsx
+│       │   └── EnquiryButton.jsx
+│       ├── pages/
+│       │   ├── login.jsx
+│       │   ├── register.jsx
+│       │   ├── dashboard.jsx
+│       │   ├── projects/
+│       │   │   ├── index.jsx            # All projects listing
+│       │   │   └── [id].jsx             # Project detail + plot grid
+│       │   ├── plot/
+│       │   │   └── [id].jsx             # Plot detail + 3D viewer
+│       │   └── admin/
+│       │       ├── dashboard.jsx        # Admin home
+│       │       ├── create-project.jsx   # Create project + plot division form
+│       │       └── manage/
+│       │           └── [id].jsx         # Edit project / update plot statuses
+│       ├── three/
+│       │   ├── PlotViewer.jsx           # Three.js canvas component
+│       │   ├── generatePlot3D.js        # Procedural 3D mesh from dimensions
+│       │   └── controls.js             # Orbit controls setup
+│       ├── context/
+│       │   └── AuthContext.jsx
+│       └── utils/
+│           └── plotDivision.js          # Frontend grid calculation helpers
 │
-├── src/                   ← (Phase 2: React app)
-│   ├── components/
-│   │   ├── PlotViewer3D.tsx
-│   │   ├── ProjectCard.tsx
-│   │   ├── PlotPanel.tsx
-│   │   ├── AuthModal.tsx
-│   │   └── MiniPlotGrid.tsx
-│   ├── pages/
-│   │   ├── index.tsx      ← Landing page
-│   │   ├── projects/
-│   │   │   └── [id].tsx   ← Project detail + plot browser
-│   │   └── plot/
-│   │       └── [id].tsx   ← Full 3D viewer page
-│   └── lib/
-│       ├── api.ts
-│       └── three-setup.ts
+├── server/                              # Backend (Python + FastAPI)
+│   ├── main.py                          # FastAPI app entry point
+│   ├── database.py                      # SQLite3 connection + SQLAlchemy setup
+│   ├── models.py                        # SQLAlchemy ORM models (User, Project, Plot)
+│   ├── schemas.py                       # Pydantic request/response schemas
+│   ├── auth.py                          # JWT creation, verification, password hashing
+│   ├── dependencies.py                  # Reusable FastAPI dependencies (get_current_user, admin_only)
+│   ├── routers/
+│   │   ├── auth.py                      # /api/auth routes
+│   │   ├── projects.py                  # /api/projects routes
+│   │   └── plots.py                     # /api/plots routes
+│   ├── services/
+│   │   └── plot_division.py             # Auto plot division algorithm
+│   ├── rk_estates.db                    # SQLite3 database file (auto-created)
+│   └── requirements.txt
 │
-├── public/
-│   └── models/            ← GLTF project 3D models (Phase 2)
-│       ├── greenfield.glb
-│       ├── skyline.glb
-│       └── sunrise.glb
-│
-└── server/                ← (Phase 2: Node.js backend)
-    ├── routes/
-    │   ├── auth.ts
-    │   ├── projects.ts
-    │   └── plots.ts
-    └── db/
-        └── schema.sql
+├── .env.example
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## Getting Started
+## 🗃️ Database Schema (SQLite3)
 
-### Option 1 — Open the Prototype (no setup needed)
+### `users` table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INTEGER PK | Auto-increment |
+| name | TEXT | Full name |
+| email | TEXT UNIQUE | Login email |
+| hashed_password | TEXT | bcrypt hash |
+| role | TEXT | `buyer` or `admin` |
+| created_at | DATETIME | Timestamp |
+
+### `projects` table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INTEGER PK | Auto-increment |
+| name | TEXT | Project name |
+| location | TEXT | Project location |
+| description | TEXT | Details |
+| land_length | REAL | Total land length (ft) |
+| land_width | REAL | Total land width (ft) |
+| num_plots | INTEGER | Number of plots to divide into |
+| created_at | DATETIME | Timestamp |
+
+### `plots` table
+| Column | Type | Description |
+|--------|------|-------------|
+| id | INTEGER PK | Auto-increment |
+| project_id | INTEGER FK | References `projects.id` |
+| plot_number | INTEGER | Plot number within project |
+| length | REAL | Plot length (ft) |
+| width | REAL | Plot width (ft) |
+| area | REAL | Computed area (sq ft) |
+| row_index | INTEGER | Row position in grid |
+| col_index | INTEGER | Column position in grid |
+| facing | TEXT | N / S / E / W |
+| price | REAL | Price (optional, set by admin) |
+| status | TEXT | `Available` / `Booked` / `Sold` |
+
+---
+
+## 📡 API Endpoints
+
+### Auth — `/api/auth`
+| Method | Endpoint | Access | Description |
+|--------|----------|--------|-------------|
+| POST | `/api/auth/register` | Public | Register a new buyer |
+| POST | `/api/auth/login` | Public | Login and receive JWT token |
+| GET | `/api/auth/me` | Private | Get current logged-in user |
+
+### Projects — `/api/projects`
+| Method | Endpoint | Access | Description |
+|--------|----------|--------|-------------|
+| GET | `/api/projects` | Public | List all projects |
+| GET | `/api/projects/{id}` | Public | Get project + all its plots |
+| POST | `/api/projects` | Admin | Create project → triggers auto plot division |
+| PUT | `/api/projects/{id}` | Admin | Update project details |
+| DELETE | `/api/projects/{id}` | Admin | Delete project and its plots |
+
+### Plots — `/api/plots`
+| Method | Endpoint | Access | Description |
+|--------|----------|--------|-------------|
+| GET | `/api/plots/{id}` | Public | Get single plot details |
+| GET | `/api/plots/{id}/dimensions` | Public | Get dimensions for 3D rendering |
+| PUT | `/api/plots/{id}/status` | Admin | Update status (Available/Booked/Sold) |
+
+> 📘 Full interactive API docs are available at `http://localhost:8000/docs` (Swagger UI) when the server is running.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.11+
+- Node.js v18+
+- pip
+- npm or yarn
+
+### Backend Setup
 
 ```bash
-# Just open the file in your browser
-open rk-estates.html
-# or
-double-click rk-estates.html
+cd server
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file
+cp ../.env.example .env
+# Edit .env and set your SECRET_KEY
 ```
 
-No server, no npm, no dependencies. Works offline.
+`requirements.txt`:
+```
+fastapi
+uvicorn[standard]
+sqlalchemy
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+python-dotenv
+```
 
----
-
-### Option 2 — Serve Locally
+### Start the Backend
 
 ```bash
-# Using Python
-python3 -m http.server 3000
-
-# Using Node
-npx serve .
-
-# Then visit
-open http://localhost:3000/rk-estates.html
+cd server
+source venv/bin/activate
+uvicorn main:app --reload --port 8000
 ```
 
----
+API will be live at `http://localhost:8000`
+Swagger docs at `http://localhost:8000/docs`
 
-### Option 3 — Full Stack (Phase 2)
+### Frontend Setup
 
 ```bash
-# Clone the repo
-git clone https://github.com/rkestates/platform.git
-cd platform
-
-# Install frontend dependencies
-cd frontend && npm install
-
-# Install backend dependencies
-cd ../server && npm install
-
-# Set up environment variables (see below)
-cp .env.example .env
-
-# Start database
-docker-compose up -d postgres redis
-
-# Run migrations
-npm run db:migrate
-
-# Start dev servers
-npm run dev         # frontend: localhost:3000
-npm run dev:server  # backend: localhost:4000
+cd client
+npm install
 ```
 
----
-
-## 3D Viewer Guide
-
-The interactive viewer in `#viewer` section works as follows:
-
-### Controls (current prototype)
-| Action | Result |
-|---|---|
-| Auto-rotate | Camera orbits continuously around the plot grid |
-| Click a mini-plot | Switches the selected (highlighted gold) plot |
-| **3D View** button | Shows isometric 3D block visualization |
-| **2D View** button | Shows top-down map with plot labels |
-| **Reset** button | Resets camera to default angle |
-
-### How Plot Colors Work
-| Color | Meaning |
-|---|---|
-| 🟢 Green | Available — can enquire |
-| 🔴 Red | Sold — not available |
-| 🟡 Yellow | Reserved — pending confirmation |
-| 🟨 Gold | Currently selected plot |
-
-### Phase 2: Real 3D (Three.js)
-
-In Phase 2, the Canvas mock will be replaced with a Three.js viewer:
-
-```javascript
-// Example: Loading project GLTF model
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
-
-const loader = new GLTFLoader();
-const draco = new DRACOLoader();
-draco.setDecoderPath('/draco/');
-loader.setDRACOLoader(draco);
-
-loader.load('/models/greenfield.glb', (gltf) => {
-  scene.add(gltf.scene);
-  // Highlight selected plot by name
-  const plotMesh = gltf.scene.getObjectByName('plot_G14');
-  plotMesh.material.color.set(0xc8952a);
-});
-```
-
----
-
-## Customization
-
-### Change Brand Colors
-
-Edit CSS variables at the top of `rk-estates.html`:
-
-```css
-:root {
-  --ink: #0f0e0c;        /* Main dark color */
-  --cream: #f5f0e8;      /* Background */
-  --gold: #c8952a;       /* Accent / CTA */
-  --gold-light: #e8b84b; /* Hover gold */
-  --muted: #8a7f6e;      /* Secondary text */
-}
-```
-
-### Add a New Project Card
-
-In the `.projects-grid` section, copy a `.project-card` block and update:
-- `bg-*` gradient in `style="background: ..."` 
-- `project-tag` text and class (`available` / `sold` / `coming`)
-- Project name, location, plot count, price
-
-### Add Plot Data
-
-In the JavaScript section, update the `plotData` array:
-
-```javascript
-const plotData = [
-  { id:'G-11', status:'sold', price:'₹48L', area:'1,100 sq.ft', dim:'28×40 ft', facing:'North' },
-  { id:'G-12', status:'avail', price:'₹50L', area:'1,150 sq.ft', dim:'29×40 ft', facing:'East' },
-  // ... add more plots
-];
-```
-
-Status values: `'avail'` | `'sold'` | `'reserved'`
-
----
-
-## Deployment
-
-### Netlify (recommended for prototype)
-
-```bash
-# Drag and drop rk-estates.html to netlify.com/drop
-# Live in 10 seconds
-```
-
-### Vercel
-
-```bash
-npm i -g vercel
-vercel deploy
-```
-
-### GitHub Pages
-
-```bash
-git init
-git add rk-estates.html README.md
-git commit -m "Initial deploy"
-git branch -M main
-git remote add origin https://github.com/YOUR_ORG/rk-estates.git
-git push -u origin main
-# Enable GitHub Pages in repo settings → Pages → Deploy from main branch
-```
-
----
-
-## Environment Variables
-
-For Phase 2 full-stack setup, create a `.env` file:
+Create a `.env.local` file in `/client`:
 
 ```env
-# Database
-DATABASE_URL=postgresql://user:password@localhost:5432/rkestates
-REDIS_URL=redis://localhost:6379
-
-# Auth
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRES_IN=7d
-REFRESH_TOKEN_SECRET=another_secret_here
-
-# Storage (AWS S3 or Cloudflare R2)
-AWS_ACCESS_KEY_ID=your_key
-AWS_SECRET_ACCESS_KEY=your_secret
-AWS_BUCKET_NAME=rk-estates-assets
-AWS_REGION=ap-south-1
-
-# Email (for OTP / notifications)
-SMTP_HOST=smtp.sendgrid.net
-SMTP_PORT=587
-SMTP_USER=apikey
-SMTP_PASS=your_sendgrid_api_key
-
-# CRM (Phase 3)
-ZOHO_API_KEY=your_zoho_key
-ZOHO_ORG_ID=your_org_id
-
-# App
-PORT=4000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
----
+### Start the Frontend
 
-## Roadmap
+```bash
+cd client
+npm run dev
+```
 
-### ✅ Phase 1 — Prototype (Current)
-- Single-file HTML/CSS/JS implementation
-- Canvas-based 3D animation
-- Project cards, plot panel, modal, forms
-- Responsive layout + scroll animations
-
-### 🔲 Phase 2 — MVP (8 weeks)
-- React + TypeScript codebase
-- Real Three.js 3D viewer with GLTF models
-- Node.js backend + PostgreSQL database
-- JWT authentication (login/register/OTP)
-- Admin panel to add projects and upload 3D models
-- Plot status managed via database
-- Wishlist / favourites
-
-### 🔲 Phase 3 — Scale (16 weeks)
-- Comparison tool (up to 3 plots side-by-side)
-- CRM integration (Zoho / Salesforce)
-- Analytics dashboard (heatmaps, view counts)
-- Multi-language support (Hindi, Tamil)
-- Virtual site tour (auto-rotating walkthrough)
-- Online booking + payment gateway (Razorpay)
-- Mobile app (React Native)
+Open `http://localhost:3000` in your browser.
+Admin dashboard is at `/admin/dashboard` (requires admin role).
 
 ---
 
-## License
+### Environment Variables
 
-Internal use only. © 2026 RK Estates. All rights reserved.
+Create a `.env` file in `/server`:
+
+```env
+SECRET_KEY=your_super_secret_jwt_key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+```
+
+> The SQLite3 database file (`rk_estates.db`) is created automatically in the `/server` directory on first run. No database setup required.
 
 ---
 
-*Built with ♥ in India. RERA Registration: RERA/KA/PROJ/2025/001234*
+## 📸 Pages Overview
+
+| Page | Who | Description |
+|------|-----|-------------|
+| `/login` | All | Login screen |
+| `/register` | Buyer | Buyer signup |
+| `/dashboard` | Buyer | Browse all projects |
+| `/projects/[id]` | Buyer | Project detail with interactive plot grid |
+| `/plot/[id]` | Buyer | Plot info + auto-generated 3D viewer |
+| `/admin/dashboard` | Admin | Manage all projects |
+| `/admin/create-project` | Admin | Enter land dimensions & plot count |
+| `/admin/manage/[id]` | Admin | Edit project, update plot statuses |
+
+---
+
+## 🛣️ Roadmap
+
+- [x] Project setup & architecture planning
+- [ ] Authentication system (buyer + admin roles)
+- [ ] Admin: Create project with land dimensions & plot count
+- [ ] Backend: Auto plot division algorithm in Python
+- [ ] SQLite3 database schema & SQLAlchemy models
+- [ ] Frontend: Interactive plot grid layout
+- [ ] Three.js: Procedural 3D plot viewer from dimensions
+- [ ] Admin: Plot status management (Available / Booked / Sold)
+- [ ] Buyer: Enquiry form on plot page
+- [ ] Deployment (Vercel + Render)
+- [ ] Payment / booking flow *(future)*
+- [ ] Mobile app *(future)*
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
+
+---
+
+## 📬 Contact
+
+**RK Estates Team**
+- 📧 Email: contact@rkestates.com
+- 🌐 Website: [www.rkestates.com](https://www.rkestates.com)
+- 📍 Location: India
