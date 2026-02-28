@@ -1,0 +1,411 @@
+{
+  "info": {
+    "id": "ses_35d1992effferrY38t5daD0EPH",
+    "slug": "crisp-panda",
+    "version": "1.1.50",
+    "projectID": "664c1c56982253d6eddbc6f6aa18a172eb20623c",
+    "directory": "/mnt/d/Rk-Estates",
+    "title": "Gitignore: ignore .entire, .gemini, .opencode files",
+    "time": {
+      "created": 1772259536144,
+      "updated": 1772260091917
+    },
+    "summary": {
+      "additions": 3,
+      "deletions": 0,
+      "files": 1
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "id": "REDACTED",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "user",
+        "time": {
+          "created": 1772259536167
+        },
+        "summary": {
+          "title": "Gitignore .entire .gemini .opencode files for GitHub push prevention",
+          "diffs": [
+            {
+              "file": ".gitignore",
+              "before": "",
+              "after": ".entire\n.gemini\n.opencode\n",
+              "additions": 3,
+              "deletions": 0,
+              "status": "added"
+            }
+          ]
+        },
+        "agent": "build",
+        "model": {
+          "providerID": "opencode",
+          "modelID": "big-pickle"
+        },
+        "variant": "high"
+      },
+      "parts": [
+        {
+          "id": "prt_ca2e66d1c001EyL0DoTj63LF8W",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "REDACTED",
+          "type": "text",
+          "text": "Create .gitignore file and add .entire, .gemini and .opencode file because i dont want to push this files into github"
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "msg_ca2e66d4a001tI4163WMkdsW5m",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "assistant",
+        "time": {
+          "created": 1772259536202,
+          "completed": 1772259546021
+        },
+        "parentID": "REDACTED",
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "/mnt/d/Rk-Estates",
+          "root": "/mnt/d/Rk-Estates"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 78,
+          "output": 71,
+          "reasoning": 0,
+          "cache": {
+            "read": 510,
+            "write": 10663
+          }
+        },
+        "finish": "tool-calls"
+      },
+      "parts": [
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e66d4a001tI4163WMkdsW5m",
+          "type": "step-start",
+          "snapshot": "a795c7e5518c7582afc9903a2acfba6047368692"
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e66d4a001tI4163WMkdsW5m",
+          "type": "reasoning",
+          "text": "The user wants me to create a .gitignore file and add .entire, .gemini and .opencode files to it. Let me first check if a .gitignore file already exists in the project.",
+          "metadata": {
+            "anthropic": {
+              "signature": "a5e94e0e9ebb553242b9803e4233136bf378be43f03e57a4c4fd960e7ec65702"
+            }
+          },
+          "time": {
+            "start": 1772259544669,
+            "end": 1772259545873
+          }
+        },
+        {
+          "id": "prt_ca2e69316001ozWLF6c6pr3HD1",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e66d4a001tI4163WMkdsW5m",
+          "type": "tool",
+          "callID": "call_function_x4mn2quqavts_1",
+          "tool": "glob",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": ".gitignore"
+            },
+            "output": "/mnt/d/Rk-Estates/.opencode/.gitignore\n/mnt/d/Rk-Estates/.entire/.gitignore",
+            "title": "",
+            "metadata": {
+              "count": 2,
+              "truncated": false
+            },
+            "time": {
+              "start": 1772259545881,
+              "end": 1772259545933
+            }
+          }
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e66d4a001tI4163WMkdsW5m",
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "a795c7e5518c7582afc9903a2acfba6047368692",
+          "cost": 0,
+          "tokens": {
+            "input": 78,
+            "output": 71,
+            "reasoning": 0,
+            "cache": {
+              "read": 510,
+              "write": 10663
+            }
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "assistant",
+        "time": {
+          "created": 1772259546039,
+          "completed": 1772259551360
+        },
+        "parentID": "REDACTED",
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "/mnt/d/Rk-Estates",
+          "root": "/mnt/d/Rk-Estates"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 114,
+          "output": 108,
+          "reasoning": 0,
+          "cache": {
+            "read": 11140,
+            "write": 109
+          }
+        },
+        "finish": "tool-calls"
+      },
+      "parts": [
+        {
+          "id": "prt_ca2e69f80001OL6cFYTEi2wOAu",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+          "type": "step-start",
+          "snapshot": "a795c7e5518c7582afc9903a2acfba6047368692"
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+          "type": "reasoning",
+          "text": "There are .gitignore files in .opencode and .entire directories, but not in the root directory. The user wants a .gitignore in the root directory to exclude .entire, .gemini and .opencode files/folders. Let me create one.",
+          "metadata": {
+            "anthropic": {
+              "signature": "cb5eef8ecd3b32dcd17991b3107c1cb23e432d7067b6acf10524cc85684d5205"
+            }
+          },
+          "time": {
+            "start": 1772259549058,
+            "end": 1772259550317
+          }
+        },
+        {
+          "id": "prt_ca2e6a46d0010KlpAbQFmt3HHn",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+          "type": "tool",
+          "callID": "call_function_mjxsj2g290c6_1",
+          "tool": "write",
+          "state": {
+            "status": "completed",
+            "input": {
+              "content": ".entire\n.gemini\n.opencode\n",
+              "filePath": "/mnt/d/Rk-Estates/.gitignore"
+            },
+            "output": "Wrote file successfully.",
+            "title": ".gitignore",
+            "metadata": {
+              "diagnostics": {},
+              "filepath": "/mnt/d/Rk-Estates/.gitignore",
+              "exists": false,
+              "truncated": false
+            },
+            "time": {
+              "start": 1772259551199,
+              "end": 1772259551286
+            }
+          }
+        },
+        {
+          "id": "prt_ca2e6a836001e6otmJTGSx0A18",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+          "type": "step-finish",
+          "reason": "tool-calls",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2",
+          "cost": 0,
+          "tokens": {
+            "input": 114,
+            "output": 108,
+            "reasoning": 0,
+            "cache": {
+              "read": 11140,
+              "write": 109
+            }
+          }
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e693b7001kDeTcyWLsg0CY5",
+          "type": "patch",
+          "hash": "a795c7e5518c7582afc9903a2acfba6047368692",
+          "files": [
+            "/mnt/d/Rk-Estates/.gitignore"
+          ]
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "msg_ca2e6a88a001QNOeLvnQM4dVs2",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "assistant",
+        "time": {
+          "created": 1772259551370,
+          "completed": 1772259560888
+        },
+        "parentID": "REDACTED",
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "/mnt/d/Rk-Estates",
+          "root": "/mnt/d/Rk-Estates"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 93,
+          "output": 42,
+          "reasoning": 0,
+          "cache": {
+            "read": 11173,
+            "write": 225
+          }
+        },
+        "finish": "stop"
+      },
+      "parts": [
+        {
+          "id": "prt_ca2e6c96b001sceBPwr4T8u1wS",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e6a88a001QNOeLvnQM4dVs2",
+          "type": "step-start",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2"
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e6a88a001QNOeLvnQM4dVs2",
+          "type": "reasoning",
+          "text": "Created the .gitignore file with the three entries the user requested.",
+          "metadata": {
+            "anthropic": {
+              "signature": "c399495b9295c5bce9a35f762440016521b38339e32ae68d89af6e939443f69e"
+            }
+          },
+          "time": {
+            "start": 1772259559789,
+            "end": 1772259560607
+          }
+        },
+        {
+          "id": "prt_ca2e6cca0001EAqa7aa9F1RoSy",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e6a88a001QNOeLvnQM4dVs2",
+          "type": "text",
+          "text": "Created `.gitignore` in the root directory with `.entire`, `.gemini`, and `.opencode` entries.",
+          "time": {
+            "start": 1772259560798,
+            "end": 1772259560798
+          }
+        },
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2e6a88a001QNOeLvnQM4dVs2",
+          "type": "step-finish",
+          "reason": "stop",
+          "snapshot": "9d457b52d19a04edb6536a8a0879c82fbfcb24b2",
+          "cost": 0,
+          "tokens": {
+            "input": 93,
+            "output": 42,
+            "reasoning": 0,
+            "cache": {
+              "read": 11173,
+              "write": 225
+            }
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "msg_ca2eee75800179f1g6mvfOGz2q",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "user",
+        "time": {
+          "created": 1772260091757
+        },
+        "summary": {
+          "diffs": []
+        },
+        "agent": "build",
+        "model": {
+          "providerID": "opencode",
+          "modelID": "big-pickle"
+        },
+        "variant": "high"
+      },
+      "parts": [
+        {
+          "id": "REDACTED",
+          "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+          "messageID": "msg_ca2eee75800179f1g6mvfOGz2q",
+          "type": "text",
+          "text": "git add .gitignore and commit"
+        }
+      ]
+    },
+    {
+      "info": {
+        "id": "msg_ca2eee78f001gP1QyzVn0s5AKb",
+        "sessionID": "ses_35d1992effferrY38t5daD0EPH",
+        "role": "assistant",
+        "time": {
+          "created": 1772260091791
+        },
+        "parentID": "msg_ca2eee75800179f1g6mvfOGz2q",
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "/mnt/d/Rk-Estates",
+          "root": "/mnt/d/Rk-Estates"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cache": {
+            "read": 0,
+            "write": 0
+          }
+        }
+      },
+      "parts": []
+    }
+  ]
+}
