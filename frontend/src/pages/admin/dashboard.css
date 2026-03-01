@@ -1,0 +1,29 @@
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard h1 {
+  margin-bottom: 20px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+}
+
+.card button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
