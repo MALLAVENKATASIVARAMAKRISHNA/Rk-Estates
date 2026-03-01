@@ -1,0 +1,13 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Update src/pages/admin/dashboard.jsx.
+
+Create AdminDashboard component with heading and 3 cards using CSS Grid. 
+Each card has title and button with console.log onClick.
+Import dashboard.css for styling.
+Keep code simple.
+
