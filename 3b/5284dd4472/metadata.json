@@ -1,0 +1,40 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "3b5284dd4472",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "client/src/pages/projects/index.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/3b/5284dd4472/0/metadata.json",
+      "transcript": "/3b/5284dd4472/0/full.jsonl",
+      "context": "/3b/5284dd4472/0/context.md",
+      "content_hash": "/3b/5284dd4472/0/content_hash.txt",
+      "prompt": "/3b/5284dd4472/0/prompt.txt"
+    },
+    {
+      "metadata": "/3b/5284dd4472/1/metadata.json",
+      "transcript": "/3b/5284dd4472/1/full.jsonl",
+      "context": "/3b/5284dd4472/1/context.md",
+      "content_hash": "/3b/5284dd4472/1/content_hash.txt",
+      "prompt": "/3b/5284dd4472/1/prompt.txt"
+    },
+    {
+      "metadata": "/3b/5284dd4472/2/metadata.json",
+      "transcript": "/3b/5284dd4472/2/full.jsonl",
+      "context": "/3b/5284dd4472/2/context.md",
+      "content_hash": "/3b/5284dd4472/2/content_hash.txt",
+      "prompt": "/3b/5284dd4472/2/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 17176,
+    "cache_creation_tokens": 84008,
+    "cache_read_tokens": 423891,
+    "output_tokens": 8486,
+    "api_call_count": 29
+  }
+}
