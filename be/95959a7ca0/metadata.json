@@ -6,6 +6,22 @@
   "checkpoints_count": 2,
   "files_touched": [
     ".gitignore",
+    "client/.gitignore",
+    "client/README.md",
+    "client/app/favicon.ico",
+    "client/app/globals.css",
+    "client/app/layout.js",
+    "client/app/page.js",
+    "client/eslint.config.mjs",
+    "client/jsconfig.json",
+    "client/next.config.mjs",
+    "client/package.json",
+    "client/postcss.config.mjs",
+    "client/public/file.svg",
+    "client/public/globe.svg",
+    "client/public/next.svg",
+    "client/public/vercel.svg",
+    "client/public/window.svg",
     "client/src/components/FilterPanel.jsx",
     "client/src/components/plotDivision.js",
     "client/src/utils/plotFilters.js",
@@ -31,6 +47,13 @@
       "context": "/be/95959a7ca0/0/context.md",
       "content_hash": "/be/95959a7ca0/0/content_hash.txt",
       "prompt": "/be/95959a7ca0/0/prompt.txt"
+    },
+    {
+      "metadata": "/be/95959a7ca0/1/metadata.json",
+      "transcript": "/be/95959a7ca0/1/full.jsonl",
+      "context": "/be/95959a7ca0/1/context.md",
+      "content_hash": "/be/95959a7ca0/1/content_hash.txt",
+      "prompt": "/be/95959a7ca0/1/prompt.txt"
     }
   ],
   "token_usage": {
