@@ -4,13 +4,6 @@ from .. import database, models, schemas, dependencies
 
 router = APIRouter(prefix="/api/plots", tags=["plots"])
 
-@router.get("/{id}", response_model=schemas.Plot)
-def get_plot(id: int, db: Session = Depends(database.get_db)):
-    plot = db.query(models.Plot).filter(models.Plot.id == id).first()
-    if not plot:
-        raise HTTPException(status_code=404, detail="Plot not found")
-    return plot
-
 @router.get("/{id}/dimensions")
 def get_plot_dimensions(id: int, db: Session = Depends(database.get_db)):
     plot = db.query(models.Plot).filter(models.Plot.id == id).first()
@@ -23,6 +16,13 @@ def get_plot_dimensions(id: int, db: Session = Depends(database.get_db)):
         "col_index": plot.col_index,
         "facing": plot.facing
     }
+
+@router.get("/{id}", response_model=schemas.Plot)
+def get_plot(id: int, db: Session = Depends(database.get_db)):
+    plot = db.query(models.Plot).filter(models.Plot.id == id).first()
+    if not plot:
+        raise HTTPException(status_code=404, detail="Plot not found")
+    return plot
 
 @router.put("/{id}/status", response_model=schemas.Plot)
 def update_plot_status(

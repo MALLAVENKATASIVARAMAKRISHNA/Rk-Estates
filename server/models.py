@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Enum
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 from .database import Base
 
 class User(Base):
@@ -11,7 +11,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     role = Column(String, default="buyer")  # 'buyer' or 'admin'
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 class Project(Base):
     __tablename__ = "projects"
@@ -23,7 +23,7 @@ class Project(Base):
     land_length = Column(Float)
     land_width = Column(Float)
     num_plots = Column(Integer)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     plots = relationship("Plot", back_populates="project", cascade="all, delete-orphan")
 
