@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "5e9fd400e0f8",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "client/src/components/ProjectCard.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/5e/9fd400e0f8/0/metadata.json",
+      "transcript": "/5e/9fd400e0f8/0/full.jsonl",
+      "context": "/5e/9fd400e0f8/0/context.md",
+      "content_hash": "/5e/9fd400e0f8/0/content_hash.txt",
+      "prompt": "/5e/9fd400e0f8/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 12750,
+    "cache_creation_tokens": 115484,
+    "cache_read_tokens": 804092,
+    "output_tokens": 15468,
+    "api_call_count": 40
+  }
+}
