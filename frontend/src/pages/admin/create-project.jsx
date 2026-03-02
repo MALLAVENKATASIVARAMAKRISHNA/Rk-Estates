@@ -108,6 +108,35 @@ const CreateProject = () => {
           </div>
         )}
 
+        {numPlots > 0 && (
+          <div 
+            className="plot-preview"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${cols}, 40px)`,
+              gridTemplateRows: `repeat(${rows}, 40px)`,
+              gap: '4px',
+              marginTop: '16px'
+            }}
+          >
+            {Array.from({ length: numPlots }, (_, index) => (
+              <div
+                key={index}
+                style={{
+                  border: '1px solid #333',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '10px',
+                  backgroundColor: '#fff'
+                }}
+              >
+                {index + 1}
+              </div>
+            ))}
+          </div>
+        )}
+
         <button type="submit" className="submit-btn">Create Project</button>
       </form>
     </div>
