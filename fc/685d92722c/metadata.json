@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "fc685d92722c",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "client/src/components/PlotGrid.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/fc/685d92722c/0/metadata.json",
+      "transcript": "/fc/685d92722c/0/full.jsonl",
+      "context": "/fc/685d92722c/0/context.md",
+      "content_hash": "/fc/685d92722c/0/content_hash.txt",
+      "prompt": "/fc/685d92722c/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 10864,
+    "cache_creation_tokens": 79129,
+    "cache_read_tokens": 518242,
+    "output_tokens": 10855,
+    "api_call_count": 29
+  }
+}
