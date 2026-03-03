@@ -1,0 +1,5 @@
+Update src/three/PlotViewer.jsx.
+
+Add simple loading state before rendering scene.
+Enable smooth OrbitControls with damping.
+Keep implementation beginner friendly and clean.
