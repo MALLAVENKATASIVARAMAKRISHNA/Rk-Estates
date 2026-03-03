@@ -1,0 +1,14 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Update create-project.jsx.
+
+On form submit, send POST request to http://localhost:8000/api/projects using fetch.
+Send form data as JSON.
+Log response.
+Show simple success message.
+Keep code beginner friendly.
+
