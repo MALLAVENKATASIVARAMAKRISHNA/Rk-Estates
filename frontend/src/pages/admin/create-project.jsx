@@ -9,6 +9,7 @@ const CreateProject = () => {
     landWidth: '',
     numberOfPlots: ''
   });
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +28,38 @@ const CreateProject = () => {
   const plotLength = cols > 0 ? landLength / cols : 0;
   const plotWidth = rows > 0 ? landWidth / rows : 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    try {
+      const response = await fetch('http://localhost:8000/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+      console.log('Response:', data);
+
+      setMessage('Project created successfully!');
+      setFormData({
+        name: '',
+        location: '',
+        landLength: '',
+        landWidth: '',
+        numberOfPlots: ''
+      });
+    } catch (error) {
+      console.log('Error:', error);
+      setMessage('Error creating project. Please try again.');
+    }
   };
 
   return (
     <div className="create-project">
+      {message && <p className="success-message">{message}</p>}
       <h1>Create New Project</h1>
       <form onSubmit={handleSubmit} className="project-form">
         <div className="form-group">
