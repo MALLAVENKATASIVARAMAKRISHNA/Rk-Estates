@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './create-project.css';
 
 const CreateProject = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -9,7 +11,6 @@ const CreateProject = () => {
     landWidth: '',
     numberOfPlots: ''
   });
-  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,25 +42,16 @@ const CreateProject = () => {
       });
 
       const data = await response.json();
-      console.log('Response:', data);
-
-      setMessage('Project created successfully!');
-      setFormData({
-        name: '',
-        location: '',
-        landLength: '',
-        landWidth: '',
-        numberOfPlots: ''
-      });
+      if (data.id) {
+        navigate(`/admin/manage/${data.id}`);
+      }
     } catch (error) {
       console.log('Error:', error);
-      setMessage('Error creating project. Please try again.');
     }
   };
 
   return (
     <div className="create-project">
-      {message && <p className="success-message">{message}</p>}
       <h1>Create New Project</h1>
       <form onSubmit={handleSubmit} className="project-form">
         <div className="form-group">
