@@ -1,0 +1,5 @@
+Update src/three/PlotViewer.jsx.
+
+Add compass labels N, S, E, W around the plot using Text from @react-three/drei.
+Position them near edges.
+Keep implementation simple.
