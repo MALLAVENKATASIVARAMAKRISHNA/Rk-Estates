@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "e16cc000f4d7",
+  "session_id": "ses_34cb3f966ffekbIHqHx3P80dyB",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-03T10:49:01.787114088Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "frontend/src/three/PlotViewer.jsx"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "428d4331a590",
+  "token_usage": {
+    "input_tokens": 1741,
+    "cache_creation_tokens": 11797,
+    "cache_read_tokens": 69028,
+    "output_tokens": 847,
+    "api_call_count": 7
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-03T10:49:01.74556923Z",
+    "agent_lines": 27,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 27,
+    "agent_percentage": 100
+  }
+}
