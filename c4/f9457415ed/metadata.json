@@ -1,0 +1,33 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "c4f9457415ed",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "frontend/src/pages/admin/create-project.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/c4/f9457415ed/0/metadata.json",
+      "transcript": "/c4/f9457415ed/0/full.jsonl",
+      "context": "/c4/f9457415ed/0/context.md",
+      "content_hash": "/c4/f9457415ed/0/content_hash.txt",
+      "prompt": "/c4/f9457415ed/0/prompt.txt"
+    },
+    {
+      "metadata": "/c4/f9457415ed/1/metadata.json",
+      "transcript": "/c4/f9457415ed/1/full.jsonl",
+      "context": "/c4/f9457415ed/1/context.md",
+      "content_hash": "/c4/f9457415ed/1/content_hash.txt",
+      "prompt": "/c4/f9457415ed/1/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 3525,
+    "cache_creation_tokens": 17151,
+    "cache_read_tokens": 168850,
+    "output_tokens": 3011,
+    "api_call_count": 15
+  }
+}

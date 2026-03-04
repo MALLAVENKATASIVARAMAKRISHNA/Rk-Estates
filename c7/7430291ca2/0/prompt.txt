@@ -1,0 +1,6 @@
+Update src/pages/admin/manage/[id].jsx.
+
+Get project id from URL.
+Fetch project details from /api/projects/{id}.
+Display all plots in grid with status text.
+Keep layout simple using CSS Grid.

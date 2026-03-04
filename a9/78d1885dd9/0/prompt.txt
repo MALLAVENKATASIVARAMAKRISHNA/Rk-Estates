@@ -1,0 +1,5 @@
+look at the project files and divied what files to put in .gitignore and what files to push
+
+---
+
+yes

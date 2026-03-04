@@ -1,0 +1,13 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Update create-project.jsx.
+
+After successful POST, get project id from response.
+Redirect to /admin/manage/{id}.
+Use useNavigate from react-router-dom.
+Keep implementation simple.
+

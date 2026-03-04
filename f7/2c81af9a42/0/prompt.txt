@@ -1,0 +1,73 @@
+logout
+
+---
+
+Your task is to answer the following question about Gemini CLI:
+<question>
+How do I logout or exit the session?
+</question>
+
+---
+
+read the readme file and understand evrething about the project and let's discuss what did you understood
+
+---
+
+Backend API, Database & Deployment (Python + FastAPI)
+
+*Branch:* feature/backend-api
+
+### Responsibilities
+- FastAPI app entry point (server/main.py) — register routers, CORS, startup event
+- database.py — SQLite3 connection using SQLAlchemy, Base, get_db dependency, auto table creation on startup
+- models.py — SQLAlchemy ORM models: User, Project, Plot
+- schemas.py — Pydantic schemas for all request bodies and response shapes
+- auth.py — JWT creation/verification using python-jose, password hashing with passlib[bcrypt]
+- dependencies.py — get_current_user() and admin_only() FastAPI dependencies
+- All three routers: routers/auth.py, routers/projects.py, routers/plots.py
+- services/plot_division.py — *auto plot division algorithm* (core logic)
+- requirements.txt and .env.example
+- Deployment: Render or Railway for backend, Vercel for frontend
+
+### Auto Plot Division Algorithm (services/plot_division.py)
+When POST /api/projects is called with land_length, land_width, num_plots:
+1. Compute best grid fit: cols = ceil(sqrt(num_plots)), rows = ceil(num_plots / cols)
+2. Individual plot: plot_length = land_length / cols, plot_width = land_width / rows
+3. Loop through grid positions, assign row_index, col_index, facing direction, area
+4. Bulk insert all plot records into SQLite3 via SQLAlchemy
+5. Return full project + plots in response
+
+### Folder Ownership
+
+server/
+├── main.py                              ✅ YOURS
+├── database.py                          ✅ YOURS
+├── models.py                            ✅ YOURS
+├── schemas.py                           ✅ YOURS
+├── auth.py                              ✅ YOURS
+├── dependencies.py                      ✅ YOURS
+├── routers/
+│   ├── auth.py                          ✅ YOURS
+│   ├── projects.py                      ✅ YOURS
+│   └── plots.py                         ✅ YOURS
+├── services/
+│   └── plot_division.py                 ✅ YOURS  ← auto division logic
+├── rk_estates.db                        ✅ YOURS  (auto-created, gitignored)
+└── requirements.txt                     ✅ YOURS
+
+
+### API Endpoints to Build
+| Method | Endpoint | Access |
+|--------|----------|--------|
+| POST | /api/auth/register | Public |
+| POST | /api/auth/login | Public |
+| GET | /api/auth/me | Private |
+| GET | /api/projects | Public |
+| GET | /api/projects/{id} | Public |
+| POST | /api/projects | Admin |
+| PUT | /api/projects/{id} | Admin |
+| DELETE | /api/projects/{id} | Admin |
+| GET | /api/plots/{id} | Public |
+| GET | /api/plots/{id}/dimensions | Public |
+| PUT | /api/plots/{id}/status | Admin |
+ so these are the things we are responsible in this project understand everything and start doing our part

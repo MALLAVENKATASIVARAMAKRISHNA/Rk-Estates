@@ -1,0 +1,13 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Update create-project.jsx.
+
+Below grid calculation, render visual preview using CSS Grid.
+Generate small square divs based on rows and cols.
+Style as bordered boxes.
+Keep layout simple and beginner friendly.
+

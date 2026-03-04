@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "4aea8c05258d",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "frontend/src/pages/plot/[id].jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/4a/ea8c05258d/0/metadata.json",
+      "transcript": "/4a/ea8c05258d/0/full.jsonl",
+      "context": "/4a/ea8c05258d/0/context.md",
+      "content_hash": "/4a/ea8c05258d/0/content_hash.txt",
+      "prompt": "/4a/ea8c05258d/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 11398,
+    "cache_creation_tokens": 27147,
+    "cache_read_tokens": 558254,
+    "output_tokens": 3782,
+    "api_call_count": 36
+  }
+}

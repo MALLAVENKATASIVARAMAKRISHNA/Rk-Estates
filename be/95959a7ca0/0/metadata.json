@@ -1,0 +1,47 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "be95959a7ca0",
+  "session_id": "ses_353b92e5effeq2K1F13R8QaTco",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-02T03:10:03.896539519Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    ".gitignore",
+    "client/src/components/FilterPanel.jsx",
+    "client/src/components/plotDivision.js",
+    "client/src/utils/plotFilters.js",
+    "frontend/src/pages/admin/dashboard.css",
+    "frontend/src/pages/admin/dashboard.jsx",
+    "server/.env.example",
+    "server/auth.py",
+    "server/database.py",
+    "server/dependencies.py",
+    "server/main.py",
+    "server/models.py",
+    "server/requirements.txt",
+    "server/routers/auth.py",
+    "server/routers/plots.py",
+    "server/routers/projects.py",
+    "server/schemas.py",
+    "server/services/plot_division.py"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "e63f5ec8bce5",
+  "token_usage": {
+    "input_tokens": 15363,
+    "cache_creation_tokens": 128637,
+    "cache_read_tokens": 1211107,
+    "output_tokens": 21035,
+    "api_call_count": 50
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-02T03:10:03.544910328Z",
+    "agent_lines": 816,
+    "human_added": 414,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 1230,
+    "agent_percentage": 66.34146341463415
+  }
+}

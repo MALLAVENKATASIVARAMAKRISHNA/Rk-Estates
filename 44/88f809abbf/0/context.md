@@ -1,0 +1,13 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+Update manage/[id].jsx.
+
+Add dropdown in each plot card to change status.
+On change, send PUT request to /api/plots/{plot_id}/status.
+Update UI after success.
+Keep implementation simple.
+

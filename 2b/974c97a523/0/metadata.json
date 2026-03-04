@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "2b974c97a523",
+  "session_id": "ses_353b92e5effeq2K1F13R8QaTco",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-02T02:59:55.30340857Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "client/src/components/AuthContext.jsx",
+    "client/src/components/Navbar.jsx"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "f6998ae9374b",
+  "token_usage": {
+    "input_tokens": 13400,
+    "cache_creation_tokens": 120367,
+    "cache_read_tokens": 907824,
+    "output_tokens": 17022,
+    "api_call_count": 42
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-02T02:59:55.038567493Z",
+    "agent_lines": 190,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 190,
+    "agent_percentage": 100
+  }
+}

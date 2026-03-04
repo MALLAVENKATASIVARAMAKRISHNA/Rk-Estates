@@ -1,0 +1,37 @@
+understand code fully each and every line
+
+---
+
+in client folder create src folder and then pages folder in that create a buyer dashboard in dashboard.jsx
+
+---
+
+move dashboard.jsx in pages folder remove buyer folder
+
+---
+
+in the /pages/projects/index.jsx  now create all projects listing page in index.jsx
+
+---
+
+in projects folder create project detail page with interactive plot grid as id.jsx
+
+---
+
+now create components folder in client/src/
+
+---
+
+in PlotGrid.jsx render all plots in a colour-coded grid (green = Available, yellow = Booked, red = Sold)
+
+---
+
+create reusable ProjectCard like id, name, location, description and totalPlots and display clean card layout and click navigates to /projecs/id and add tailwind styling
+
+---
+
+Create PlotCard component Display plot_number, dimensions, area, price, facing, status Add colored status badge Responsive Tailwind layout.
+
+---
+
+Create responsive Navbar Links: Dashboard, Projects, Logout. Highlight active route use AuthContext for logout Tailwind styling.

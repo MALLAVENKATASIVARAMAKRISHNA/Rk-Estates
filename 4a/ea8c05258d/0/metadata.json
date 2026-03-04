@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "4aea8c05258d",
+  "session_id": "ses_34cbf1074ffe9M26Pu6vQ7UgkN",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-03T10:40:20.817626951Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "frontend/src/pages/plot/[id].jsx"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "73956e52b4b8",
+  "token_usage": {
+    "input_tokens": 11398,
+    "cache_creation_tokens": 27147,
+    "cache_read_tokens": 558254,
+    "output_tokens": 3782,
+    "api_call_count": 36
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-03T10:40:20.686496419Z",
+    "agent_lines": 102,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 102,
+    "agent_percentage": 100
+  }
+}

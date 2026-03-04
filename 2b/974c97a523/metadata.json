@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "2b974c97a523",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "client/src/components/AuthContext.jsx",
+    "client/src/components/Navbar.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/2b/974c97a523/0/metadata.json",
+      "transcript": "/2b/974c97a523/0/full.jsonl",
+      "context": "/2b/974c97a523/0/context.md",
+      "content_hash": "/2b/974c97a523/0/content_hash.txt",
+      "prompt": "/2b/974c97a523/0/prompt.txt"
+    },
+    {
+      "metadata": "/2b/974c97a523/1/metadata.json",
+      "transcript": "/2b/974c97a523/1/full.jsonl",
+      "context": "/2b/974c97a523/1/context.md",
+      "content_hash": "/2b/974c97a523/1/content_hash.txt",
+      "prompt": "/2b/974c97a523/1/prompt.txt"
+    },
+    {
+      "metadata": "/2b/974c97a523/2/metadata.json",
+      "transcript": "/2b/974c97a523/2/full.jsonl",
+      "context": "/2b/974c97a523/2/context.md",
+      "content_hash": "/2b/974c97a523/2/content_hash.txt",
+      "prompt": "/2b/974c97a523/2/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 13400,
+    "cache_creation_tokens": 120367,
+    "cache_read_tokens": 907824,
+    "output_tokens": 17022,
+    "api_call_count": 42
+  }
+}
