@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "edffce96cfcd",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "client/src/components/PrivateRoute.jsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/ed/ffce96cfcd/0/metadata.json",
+      "transcript": "/ed/ffce96cfcd/0/full.jsonl",
+      "context": "/ed/ffce96cfcd/0/context.md",
+      "content_hash": "/ed/ffce96cfcd/0/content_hash.txt",
+      "prompt": "/ed/ffce96cfcd/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 7536,
+    "cache_creation_tokens": 37195,
+    "cache_read_tokens": 148528,
+    "output_tokens": 2501,
+    "api_call_count": 12
+  }
+}

@@ -1,0 +1,12 @@
+# Session Context
+
+## User Prompts
+
+### Prompt 1
+
+read the readme.md and then repo to understand the project so that you can understand the project. do not make any changes untill i tell you
+
+### Prompt 2
+
+so i am also a one of a developer of this project so i will give you my responsibilities one by one so you can do it. so now write every thing what you understand in file opencode.md so create a file
+
