@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.7",
+  "checkpoint_id": "306b1b931435",
+  "session_id": "ses_348cc1ab6ffeCfKGEXfCOhxpos",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-04T05:45:27.978175285Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "client/src/components/AdminRoute.jsx"
+  ],
+  "agent": "OpenCode",
+  "turn_id": "36635a1b4b36",
+  "token_usage": {
+    "input_tokens": 7536,
+    "cache_creation_tokens": 37195,
+    "cache_read_tokens": 148528,
+    "output_tokens": 2501,
+    "api_call_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-04T05:45:27.731874971Z",
+    "agent_lines": 24,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 24,
+    "agent_percentage": 100
+  }
+}
